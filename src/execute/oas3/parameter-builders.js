@@ -14,7 +14,7 @@ function path({req, value, parameter}) {
     value,
     style: style || 'simple',
     explode: explode || false,
-    escape: true,
+    escape: parameter.allowReserved ? 'unsafe' : 'reserved',
   })
 
   req.url = req.url.split(`{${name}}`).join(styledValue)
